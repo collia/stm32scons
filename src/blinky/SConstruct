@@ -16,6 +16,7 @@ stm32cubef1_hal_path = '../stm32cubef1/Drivers/STM32F1xx_HAL_Driver/'
 stm32cubef1_cmsis_path = '../stm32cubef1/Drivers/CMSIS/'
 
 stm_family='STM32F103XB'
+stm_device='STM32F103X6'
 
 # include locations
 env.Append(CPPPATH = [
@@ -45,7 +46,7 @@ env.Append(LINKFLAGS = [
     '-mcpu=cortex-m4',
     '-mthumb',
     '-Wl,--gc-sections,-Map=main.elf.map,-cref,-u,Reset_Handler',
-     '-T', 'Src/gcc/linker/'+ stm_family + '_FLASH.ld'
+     '-T', 'Src/gcc/linker/'+ stm_device + '_FLASH.ld'
     ]) 
 
 # defines
@@ -80,7 +81,7 @@ prg = env.Program(
         'build/src/main.c',
         'build/src/stm32f1xx_it.c',
         'build/src/system_stm32f1xx.c',
-        'build/src/gcc/startup_' + stm_family.lower() + '.s'
+        'build/src/gcc/startup_' + stm_device.lower() + '.s'
     ]
 )
  
