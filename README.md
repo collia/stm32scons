@@ -1,5 +1,6 @@
 **THIS PROJECT IS NOT FINISHED**
 
+- Download stm32 cube software by the link https://www.st.com/en/embedded-software/stm32cube-mcu-mpu-packages.html and unpack it in src/stm32cubef1 folder (can be used any other folder - but is needed to change src/build.sh script)
 
 - Prepare Docker image
 In folder docker run the command:
