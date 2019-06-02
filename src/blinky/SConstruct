@@ -33,6 +33,7 @@ env.Append(LIBPATH = [
 # compiler flags
 env.Append(CCFLAGS = [
     '-mcpu=cortex-m3',
+    '-march=armv7-m',
     '-mthumb',
     '-O0',
     '-std=gnu11',
@@ -43,9 +44,9 @@ env.Append(CCFLAGS = [
 # linker flags
 #    '-Wl,--gc-sections,-Map=main.elf.map,-cref,-u,Reset_Handler',
 env.Append(LINKFLAGS = [
-    '-mcpu=cortex-m4',
+    #'-mcpu=cortex-m3',
     '-mthumb',
-    '-Wl,--gc-sections,-Map=main.elf.map,-cref,-u,Reset_Handler',
+    '-Wl,--gc-sections,-Map=main.elf.map,-cref,-u,Reset_Handler,--trace',
      '-T', 'Src/gcc/linker/'+ stm_device + '_FLASH.ld'
     ]) 
 

@@ -67,6 +67,6 @@ fi
 if [ "$GDB" = "1" ]; then
     docker run --rm=true -ti -v "$(pwd)/$PRJ:/home/user/stm" -v "$STM32CUBEPATH:/home/user/stm32cubef1" \
        -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
-       stm_operate  "arm-none-eabi-gdb /home/user/stm/main.elf"
+       stm_operate  "gdb-multiarch /home/user/stm/main.elf"
 
 fi
