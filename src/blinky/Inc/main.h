@@ -41,35 +41,16 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
-//#include "stm32f1xx_nucleo.h"
-
-/* LL drivers common to all LL examples */
-#include "stm32f1xx_ll_rcc.h"
-#include "stm32f1xx_ll_bus.h"
-#include "stm32f1xx_ll_system.h"
-#include "stm32f1xx_ll_utils.h"
-#include "stm32f1xx_ll_pwr.h"
-#include "stm32f1xx_ll_exti.h"
-#include "stm32f1xx_ll_gpio.h"
-#include "stm32f1xx_ll_adc.h"
-#include "stm32f1xx_ll_cortex.h"
-#include "stm32f1xx_ll_crc.h"
-#include "stm32f1xx_ll_dac.h"
-#include "stm32f1xx_ll_dma.h"
-#include "stm32f1xx_ll_i2c.h"
-#include "stm32f1xx_ll_iwdg.h"
-#include "stm32f1xx_ll_rtc.h"
-#include "stm32f1xx_ll_spi.h"
-#include "stm32f1xx_ll_tim.h"
-#include "stm32f1xx_ll_usart.h"
-#include "stm32f1xx_ll_wwdg.h"
-
+#include "stm32f1xx_hal_rcc.h"
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-#define LED2_PIN                           LL_GPIO_PIN_13
-#define LED2_GPIO_PORT                     GPIOC
-#define LED2_GPIO_CLK_ENABLE()             LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_GPIOC)
+
+#define LED1_PIN                         GPIO_PIN_13             /* PC.13*/
+#define LED1_GPIO_PORT                   GPIOC
+#define LED1_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOC_CLK_ENABLE()
+#define LED1_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOC_CLK_DISABLE()
+ 
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
