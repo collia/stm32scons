@@ -16,11 +16,11 @@ docker build -t stm_operate .
   ```bash
   ./build.sh -p blinky -c
   ```
-  * programm project to device and start debugger server
+  * programming project to device and start debug server
   ```bash
   ./build.sh -p blinky -f -d
   ```
-- Open gdb in correct env:
+- Open gdb in correct environment:
   ```bash
   ./build.sh -p blinky -g
   ```
