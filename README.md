@@ -1,5 +1,7 @@
 **THIS PROJECT IS NOT FINISHED**
 
+All this projects was tested on [Blue pill]](http://wiki.stm32duino.com/index.php?title=Blue_Pill) device and st-link v2
+
 - Download stm32 cube software by the link https://www.st.com/en/embedded-software/stm32cube-mcu-mpu-packages.html and unpack it in src/stm32cubef1 folder (can be used any other folder - but is needed to change src/build.sh script)
 
 - Prepare Docker image
