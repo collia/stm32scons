@@ -1,5 +1,7 @@
 **THIS PROJECT IS NOT FINISHED**
 
+## Build instructions
+
 All this projects was tested on [Blue pill]](http://wiki.stm32duino.com/index.php?title=Blue_Pill) device and st-link v2
 
 - Download stm32 cube software by the link https://www.st.com/en/embedded-software/stm32cube-mcu-mpu-packages.html and unpack it in src/stm32cubef1 folder (can be used any other folder - but is needed to change src/build.sh script)
@@ -37,3 +39,11 @@ docker build -t stm_operate .
   break main
   ```
   IP address is address for debugger server
+
+## Gpio terminal commands syntax
+
+```bash
+gpio info
+gpio A|B|C|D port [1-16] mode on|off
+gpio A|B|C|D port [1-16] mode pwm freq [0-1000] [0-100]%
+```
