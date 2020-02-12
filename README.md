@@ -65,3 +65,19 @@ Full commands list:
   frequency is configuring for timer
 - `pwm tim [1-3] freq <int>` - set freq in Hz for appropriate timer. Good values from 1 to 1000 Hz. Other frequency can make strage results
 
+## Notes
+
+For unlocking flash in first time:
+- start debugger 
+  ```
+  ./build.sh -p termgpio -d 
+  ```
+- Connect to OCD via telnet
+  ```
+  telnet 172.17.0.2  4444
+  ```
+- Run commands in debugger
+  ```
+  reset init
+  stm32f1x unlock 0
+  ```
