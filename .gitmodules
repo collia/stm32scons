@@ -1,0 +1,3 @@
+[submodule "src/terminalgpio"]
+	path = src/terminalgpio
+	url = https://github.com/collia/terminalgpio.git
