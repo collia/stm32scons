@@ -1,3 +1,6 @@
 [submodule "src/terminalgpio"]
 	path = src/terminalgpio
 	url = https://github.com/collia/terminalgpio.git
+[submodule "src/shuttertester"]
+	path = src/shuttertester
+	url = https://github.com/collia/shuttertester.git
