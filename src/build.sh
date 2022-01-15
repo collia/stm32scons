@@ -37,15 +37,15 @@ do
 done
 
 MOUNTPATHS="-v $(pwd)/$PRJ:/home/user/stm -v $STM32CUBEPATH:/home/user/stm32cubef1 -v $FREERTOSPATH:/home/user/FreeRTOS"
-
+DOCKERPARAMS=" --rm=true --network host "
 if [ "$CLEAN" = "1" ]; then
     echo "Cleaning..."
-    docker run --rm=true  $MOUNTPATHS  stm_operate "scons -c"
+    docker run $DOCKERPARAMS  $MOUNTPATHS  stm_operate "scons -c"
     exit 0
 fi
 
 echo "Building..."
-docker run --rm=true $MOUNTPATHS stm_operate "scons --debug=includes"
+docker run $DOCKERPARAMS $MOUNTPATHS stm_operate "scons --debug=includes"
 
 if [ "$?" != "0" ]; then
 	echo Compilation failed
@@ -54,17 +54,17 @@ fi
 
 if [ "$FLASH" = "1" ]; then
     echo "Flashing..."
-    docker run --rm=true  $MOUNTPATHS  -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
+    docker run $DOCKERPARAMS  $MOUNTPATHS  -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
        stm_operate "openocd -f /usr/local/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg -c \"program main.bin 0x08000000 verify reset exit\" "
 fi
 
 if [ "$DEBUG" = "1" ]; then
-    docker run --rm=true  $MOUNTPATHS -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
+    docker run $DOCKERPARAMS  $MOUNTPATHS -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
        stm_operate "ifconfig; openocd -f /usr/local/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg" 
 fi
 
 if [ "$GDB" = "1" ]; then
-    docker run --rm=true -ti  $MOUNTPATHS -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
+    docker run $DOCKERPARAMS -ti  $MOUNTPATHS -ti --privileged -v /dev/bus/usb:/dev/bus/usb \
        stm_operate  "gdb-multiarch /home/user/stm/main.elf"
 
 fi
