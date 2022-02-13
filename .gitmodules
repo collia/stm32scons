@@ -7,3 +7,6 @@
 [submodule "src/enlarger_light_controller"]
 	path = src/enlarger_light_controller
 	url = git@github.com:collia/enlarger_light_controller.git
+[submodule "src/STM32CubeF4"]
+	path = src/STM32CubeF4
+	url = https://github.com/STMicroelectronics/STM32CubeF4
