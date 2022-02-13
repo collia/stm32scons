@@ -9,7 +9,8 @@ GDB=0
 PRJ=.
 CLEAN=0
 
-STM32CUBEPATH=$(pwd)/stm32cubef1/STM32Cube_FW_F1_V1.7.0/
+STM32CUBEF1PATH=$(pwd)/stm32cubef1/STM32Cube_FW_F1_V1.7.0/
+STM32CUBEF4PATH=$(pwd)/STM32CubeF4/
 FREERTOSPATH=$(pwd)/FreeRTOSv202107.00/FreeRTOS/
 
 while getopts cdgufp: option 
@@ -36,7 +37,8 @@ do
  esac 
 done
 
-MOUNTPATHS="-v $(pwd)/$PRJ:/home/user/stm -v $STM32CUBEPATH:/home/user/stm32cubef1 -v $FREERTOSPATH:/home/user/FreeRTOS"
+MOUNTPATHS="-v $(pwd)/$PRJ:/home/user/stm -v $STM32CUBEF4PATH:/home/user/stm32cubef4 -v $STM32CUBEF1PATH:/home/user/stm32cubef1 -v $FREERTOSPATH:/home/user/FreeRTOS"
+
 DOCKERPARAMS=" --rm=true --network host "
 if [ "$CLEAN" = "1" ]; then
     echo "Cleaning..."
